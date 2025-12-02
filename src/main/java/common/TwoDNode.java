@@ -1,4 +1,4 @@
-package aoc2024.common;
+package common;
 
 /* WIP */
 public class TwoDNode {

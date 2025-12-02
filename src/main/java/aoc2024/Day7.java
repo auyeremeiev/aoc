@@ -1,8 +1,8 @@
 package aoc2024;
 
-import aoc2024.common.Pair;
-import aoc2024.common.StopWatchGauge;
-import aoc2024.common.Task;
+import common.Pair;
+import common.StopWatchGauge;
+import common.Task;
 import aoc2024.helpers.Day7Data;
 import aoc2024.inputs.Day7Input;
 import java.util.HashSet;
@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static aoc2024.common.Number.concat;
-import static aoc2024.common.Number.digits;
+import static common.Number.concat;
+import static common.Number.digits;
 
 public class Day7 {
 

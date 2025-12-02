@@ -1,4 +1,4 @@
-package aoc2024.common;
+package common;
 
 public enum Task {
     FIRST("Task 1"),

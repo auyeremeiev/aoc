@@ -1,7 +1,7 @@
 package aoc2024;
 
-import aoc2024.common.Direction;
-import aoc2024.common.Pair;
+import common.Direction;
+import common.Pair;
 import aoc2024.helpers.Day6Data;
 import org.junit.jupiter.api.Test;
 

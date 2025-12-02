@@ -1,7 +1,7 @@
 package aoc2024;
 
-import aoc2024.common.Direction;
-import aoc2024.common.Point;
+import common.Direction;
+import common.Point;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

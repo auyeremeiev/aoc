@@ -1,6 +1,6 @@
 package aoc2024.helpers;
 
-import aoc2024.common.Point;
+import common.Point;
 import java.util.HashSet;
 import java.util.Set;
 

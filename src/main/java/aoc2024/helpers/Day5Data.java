@@ -1,6 +1,6 @@
 package aoc2024.helpers;
 
-import aoc2024.common.Pair;
+import common.Pair;
 import java.util.List;
 
 public class Day5Data {

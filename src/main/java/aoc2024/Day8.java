@@ -1,10 +1,10 @@
 package aoc2024;
 
-import aoc2024.common.PairWithoutOrder;
-import aoc2024.common.Point;
+import common.PairWithoutOrder;
+import common.Point;
 
-import aoc2024.common.StopWatchGauge;
-import aoc2024.common.Task;
+import common.StopWatchGauge;
+import common.Task;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;

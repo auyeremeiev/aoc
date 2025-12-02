@@ -1,6 +1,6 @@
 package aoc2024;
 
-import aoc2024.common.Number;
+import common.Number;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import static aoc2024.common.Number.split;
-import static aoc2024.common.Pair.toList;
+import static common.Number.split;
+import static common.Pair.toList;
 
 public class Day11 {
     private final int numberOfIterations;

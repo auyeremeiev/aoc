@@ -1,11 +1,11 @@
 package aoc2024;
 
-import aoc2024.common.Direction;
-import aoc2024.common.Line;
-import aoc2024.common.Pair;
+import common.Direction;
+import common.Line;
+import common.Pair;
 
-import aoc2024.common.StopWatchGauge;
-import aoc2024.common.Task;
+import common.StopWatchGauge;
+import common.Task;
 import aoc2024.helpers.Day6Data;
 import aoc2024.helpers.Day6Element;
 import aoc2024.helpers.Day6TripResult;
@@ -18,7 +18,7 @@ import java.util.Set;
 
 import static aoc2024.helpers.Day6TripResult.Task6BumpType.END_OF_FIELD;
 import static aoc2024.helpers.Day6TripResult.Task6BumpType.OBSTACLE;
-import static aoc2024.common.ListUtils.createBooleanMatrix;
+import static common.ListUtils.createBooleanMatrix;
 
 public class Day6 {
 

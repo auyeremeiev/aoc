@@ -1,9 +1,9 @@
 package aoc2024;
 
-import aoc2024.common.Direction;
-import aoc2024.common.ListUtils;
-import aoc2024.common.Pair;
-import aoc2024.common.Point;
+import common.Direction;
+import common.ListUtils;
+import common.Pair;
+import common.Point;
 import aoc2024.helpers.Day12Region;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static aoc2024.common.Direction.DOWN;
-import static aoc2024.common.Direction.LEFT;
-import static aoc2024.common.Direction.RIGHT;
-import static aoc2024.common.Direction.UP;
-import static aoc2024.common.ListUtils.isBeyoundEdge;
+import static common.Direction.DOWN;
+import static common.Direction.LEFT;
+import static common.Direction.RIGHT;
+import static common.Direction.UP;
+import static common.ListUtils.isBeyoundEdge;
 
 public class Day12 {
 

@@ -1,3 +1,11 @@
+# Advent of code 2025
+
+I didn't measure all the tasks I did. Here is the table of those I measured:
+
+| Day                                  | Task1  |  Task2 |
+|--------------------------------------|:------:|-------:|
+| [1](src/main/java/aoc2024/Day6.java) |  10ms  |  100ms |
+
 # Advent of code 2024
 
 I didn't measure all the tasks I did. Here is the table of those I measured:

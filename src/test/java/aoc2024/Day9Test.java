@@ -1,8 +1,8 @@
 package aoc2024;
 
-import aoc2024.common.Pair;
-import aoc2024.common.StopWatchGauge;
-import aoc2024.common.Task;
+import common.Pair;
+import common.StopWatchGauge;
+import common.Task;
 import aoc2024.helpers.Day9EmptyBlock;
 import aoc2024.helpers.Day9FileBlock;
 import aoc2024.inputs.Day9Input;

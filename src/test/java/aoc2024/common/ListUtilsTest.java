@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
+
+import common.ListUtils;
 import org.junit.jupiter.api.Test;
 
-import static aoc2024.common.ListUtils.binarySearch;
+import static common.ListUtils.binarySearch;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;

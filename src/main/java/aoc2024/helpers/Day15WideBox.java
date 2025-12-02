@@ -1,7 +1,7 @@
 package aoc2024.helpers;
 
-import aoc2024.common.Direction;
-import aoc2024.common.Point;
+import common.Direction;
+import common.Point;
 
 public record Day15WideBox(Point left, Point right) {
 

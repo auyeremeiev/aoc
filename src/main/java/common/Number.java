@@ -1,4 +1,4 @@
-package aoc2024.common;
+package common;
 
 import static java.lang.Math.log10;
 import static java.lang.Math.pow;
@@ -92,5 +92,9 @@ public class Number {
 
     public static int digits(long number) {
         return (int) log10(number) + 1;
+    }
+
+    public static int modulo(int currentCode, int mod) {
+        return (currentCode % mod + mod) % mod;
     }
 }

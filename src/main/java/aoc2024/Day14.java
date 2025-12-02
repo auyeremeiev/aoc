@@ -1,9 +1,8 @@
 package aoc2024;
 
-import aoc2024.common.Pair;
-import aoc2024.common.Point;
-import aoc2024.common.PointsUtils;
-import aoc2024.common.StopWatchGauge;
+import common.Pair;
+import common.Point;
+import common.StopWatchGauge;
 import aoc2024.helpers.Day14RobotData;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,8 +17,8 @@ import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static aoc2024.common.Direction.DOWN;
-import static aoc2024.common.Direction.UP;
+import static common.Direction.DOWN;
+import static common.Direction.UP;
 
 public class Day14 {
 

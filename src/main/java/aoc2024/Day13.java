@@ -1,6 +1,6 @@
 package aoc2024;
 
-import aoc2024.common.Pair;
+import common.Pair;
 import aoc2024.helpers.Day13Task;
 import java.util.Arrays;
 import java.util.List;

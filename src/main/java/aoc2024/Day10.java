@@ -1,12 +1,12 @@
 package aoc2024;
 
-import aoc2024.common.Point;
+import common.Point;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static aoc2024.common.ListUtils.createMatrix;
+import static common.ListUtils.createMatrix;
 
 public class Day10 {
 

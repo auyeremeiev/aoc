@@ -1,6 +1,6 @@
 package aoc2024.helpers;
 
-import aoc2024.common.Pair;
+import common.Pair;
 
 public class Day6TripResult {
 

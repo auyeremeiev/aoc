@@ -1,6 +1,6 @@
 package aoc2024;
 
-import aoc2024.common.Pair;
+import common.Pair;
 
 import java.util.ArrayList;
 import java.util.List;

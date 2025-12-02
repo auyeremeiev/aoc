@@ -1,8 +1,8 @@
 package aoc2024;
 
-import aoc2024.common.Point;
-import aoc2024.common.StopWatchGauge;
-import aoc2024.common.Task;
+import common.Point;
+import common.StopWatchGauge;
+import common.Task;
 import aoc2024.inputs.Day14Input;
 import java.util.Map;
 import java.util.Set;

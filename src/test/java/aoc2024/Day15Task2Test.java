@@ -1,8 +1,7 @@
 package aoc2024;
 
-import aoc2024.common.StopWatchGauge;
-import aoc2024.common.Task;
-import aoc2024.inputs.Day14Input;
+import common.StopWatchGauge;
+import common.Task;
 import aoc2024.inputs.Day15Task1Input;
 import aoc2024.inputs.Day15Task2Input;
 import org.junit.jupiter.api.Test;

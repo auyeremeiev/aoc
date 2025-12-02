@@ -1,4 +1,4 @@
-package aoc2024.common;
+package common;
 
 import java.util.HashSet;
 import java.util.Set;

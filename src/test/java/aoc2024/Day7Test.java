@@ -3,9 +3,8 @@ package aoc2024;
 import aoc2024.inputs.Day7Input;
 import org.junit.jupiter.api.Test;
 
-import static aoc2024.Day7.measureTimeTask1;
-import static aoc2024.common.Number.concat;
-import static aoc2024.common.Number.concatLog10;
+import static common.Number.concat;
+import static common.Number.concatLog10;
 import static org.junit.jupiter.api.Assertions.*;
 
 class Day7Test {

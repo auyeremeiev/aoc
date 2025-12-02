@@ -1,7 +1,7 @@
 package aoc2024.helpers;
 
-import aoc2024.common.Direction;
-import aoc2024.common.Pair;
+import common.Direction;
+import common.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
