@@ -11,6 +11,10 @@ public class Day1 {
     public static long part1(String input) {
         List<Long> numbers = parse(input);
 
+        return part1(numbers);
+    }
+
+    public static int part1(List<Long> numbers) {
         int result = 0;
         int currentCode = 50;
         for (Long number : numbers) {
@@ -28,6 +32,10 @@ public class Day1 {
     public static long part2(String input) {
         List<Long> numbers = parse(input);
 
+        return part2(numbers);
+    }
+
+    public static long part2(List<Long> numbers) {
         long result = 0;
         int currentCode = 50;
         for (Long number : numbers) {

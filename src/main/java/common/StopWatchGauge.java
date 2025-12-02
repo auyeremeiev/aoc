@@ -32,7 +32,7 @@ public class StopWatchGauge {
             results.add(supplier.get());
         }
         stopWatch.stop();
-        log.log(Level.INFO, task.getTaskTextName() +
+        log.info(task.getTaskTextName() +
                 ": time elapsed: " + stopWatch.getNanoTime() / 1000000d / executionRepeats + "ms");
 
         if (results.isEmpty()) {
