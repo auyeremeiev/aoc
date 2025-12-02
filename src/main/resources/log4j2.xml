@@ -6,11 +6,7 @@
         </Console>
     </Appenders>
     <Loggers>
-        <!-- avoid duplicated logs with additivity=false -->
-        <Logger name="common" level="info" additivity="false">
-            <AppenderRef ref="LogToConsole"/>
-        </Logger>
-        <Root level="error">
+        <Root level="info">
             <AppenderRef ref="LogToConsole"/>
         </Root>
     </Loggers>

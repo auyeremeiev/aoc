@@ -1,10 +1,6 @@
 package common;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Supplier;
 
 public class ListUtils {
@@ -174,6 +170,25 @@ public class ListUtils {
     public static <T> String printList(List<T> list) {
         List<String> stringifiedList = list.stream().map(Object::toString).toList();
         return "[" + String.join(", ", stringifiedList) + "]";
+    }
+
+    public static <T> List<T> difference(List<T> a, List<T> b) {
+        Set<T> setA = new HashSet<>(a);
+        Set<T> setB = new HashSet<>(b);
+        List<T> result = new ArrayList<>();
+
+        for (T x : setA) {
+            if (!setB.contains(x)) {
+                result.add(x);
+            }
+        }
+        for (T x : setB) {
+            if (!setA.contains(x)) {
+                result.add(x);
+            }
+        }
+
+        return result;
     }
 
     public static <T> boolean isBeyoundEdge(List<List<T>> field, Point point) {

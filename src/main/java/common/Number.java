@@ -1,47 +1,52 @@
 package common;
 
+import java.math.BigDecimal;
+
 import static java.lang.Math.log10;
 import static java.lang.Math.pow;
 
 public class Number {
 
     public static long concat(long left, long right) {
-        if (right == 0) {
-            return left * 10L;
-        }
+        return left * pow10(digits(right)) + right;
+    }
 
-        long currentDigit;
-        long numberToAdd = 0;
-        int leadingZeros = 0;
-        while (right / 10L != 0) {
-            currentDigit = right % 10L;
-            numberToAdd *= 10L;
-            numberToAdd += currentDigit;
-            if (numberToAdd == 0) {
-                leadingZeros++;
-            }
-            right /= 10L;
-        }
+    public static BigDecimal number(String number) {
+        return new BigDecimal(number);
+    }
 
-        numberToAdd *= 10L;
-        numberToAdd += right % 10L;
+    public static BigDecimal number(Long number) {
+        return new BigDecimal(number);
+    }
 
-        while (numberToAdd / 10L != 0) {
-            currentDigit = numberToAdd % 10L;
-            left *= 10L;
-            left += currentDigit;
-            numberToAdd /= 10L;
-        }
+    public static BigDecimal number(Integer number) {
+        return new BigDecimal(number);
+    }
 
-        left *= 10L;
-        left += numberToAdd % 10L;
+    public static long pow10(long n) {
+        if (n == 0) return 1;
+        return (long) Math.pow(10, n);
+    }
 
-        while (leadingZeros != 0) {
-            left *= 10;
-            leadingZeros--;
-        }
+    public static Pair<Long, Long> split(long number) {
+        int digits = digits(number);
+        int newLeftSize = digits / 2;
+        int newRightSize = digits - newLeftSize;
 
-        return left;
+        long base = (long) pow(10L, newRightSize);
+        // 123[456]
+        return new Pair<>(number / base, number % base);
+    }
+
+    public static Pair<Long, Long> splitLeftBigger(long number) {
+        int digits = digits(number);
+        int newLeftSize = digits % 2 == 0 ? digits / 2 : digits / 2 + 1;
+
+        int newRightSize = digits - newLeftSize;
+
+        long base = (long) pow(10L, newRightSize);
+        // 123[456]
+        return new Pair<>(number / base, number % base);
     }
 
     public static Pair<Long, Long> split(long number, int numberOfDigits) {
