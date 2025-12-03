@@ -5,7 +5,7 @@ I didn't measure all the tasks I did. Here is the table of those I measured:
 | Day                                  | Task1  |  Task2 |
 |--------------------------------------|:------:|-------:|
 | [1](src/main/java/aoc2025/Day1.java) | 0.23ms | 0.28ms |
-| [2](src/main/java/aoc2024/Day2.java) | 0.2ms  |      - |
+| [2](src/main/java/aoc2024/Day2.java) | 0.2ms  |  374ms |
 
 # Advent of code 2024
 

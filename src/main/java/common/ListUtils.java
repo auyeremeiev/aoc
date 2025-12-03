@@ -218,4 +218,19 @@ public class ListUtils {
     public static <T> T get(List<List<T>> field, Point point) {
         return field.get(point.getLeft()).get(point.getRight());
     }
+
+    public static <T> boolean allElementsAreEqual(List<T> list) {
+        if (list.size() <= 1) {
+            return true;
+        }
+
+        T el = list.get(0);
+        for (int i = 1; i < list.size(); i++) {
+            if (!list.get(i).equals(el)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

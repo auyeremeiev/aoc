@@ -111,25 +111,52 @@ class Day2Test {
         assertThat(result).isEqualTo(23701357374L);
     }
 
+    @Test
+    public void testPart2InvalidIds() {
+//        assertTrue(Day2.isInvalidIdPart2(11L));
+//        assertTrue(Day2.isInvalidIdPart2(22L));
+//        assertTrue(Day2.isInvalidIdPart2(99L));
+//        assertTrue(Day2.isInvalidIdPart2(111L));
+//        assertTrue(Day2.isInvalidIdPart2(999L));
+//        assertTrue(Day2.isInvalidIdPart2(1010L));
+//        assertTrue(Day2.isInvalidIdPart2(1188511885L));
+//        assertTrue(Day2.isInvalidIdPart2(222222L));
+//        assertTrue(Day2.isInvalidIdPart2(446446L));
+//        assertTrue(Day2.isInvalidIdPart2(38593859L));
+//        assertTrue(Day2.isInvalidIdPart2(565656L));
+//        assertTrue(Day2.isInvalidIdPart2(824824824L));
+//        assertTrue(Day2.isInvalidIdPart2(2121212121L));
+//        assertTrue(Day2.isInvalidIdPart2(1010L));
+//        assertTrue(Day2.isInvalidIdPart2(111L));
+
+        assertFalse(Day2.isInvalidIdPart2(23000023));
+//        assertFalse(Day2.isInvalidIdPart2(870087L));
+//        assertFalse(Day2.isInvalidIdPart2(112L));
+//        assertFalse(Day2.isInvalidIdPart2(101L));
+//        assertFalse(Day2.isInvalidIdPart2(1698522L));
+//        assertFalse(Day2.isInvalidIdPart2(1698528L));
+//        assertFalse(Day2.isInvalidIdPart2(12L));
+//        assertFalse(Day2.isInvalidIdPart2(824824821L));
+    }
 
     @Test
     public void testPart2Short() {
         String input = readFile("inputs/aoc2025/day2-short");
-        BigDecimal result = Day2.part2(input);
-        assertThat(result).isEqualTo(new BigDecimal(3));
+        Long result = Day2.part2(input);
+        assertThat(result).isEqualTo(4174379265L);
     }
 
     @Test
     public void testPart2Full() {
         String input = readFile("inputs/aoc2025/day2-full");
-        BigDecimal result = Day2.part2(input);
-        assertThat(result).isEqualTo(new BigDecimal(3));
+        Long result = Day2.part2(input);
+        assertThat(result).isEqualTo(34284458938L);
     }
 
     @Test
     public void measureSpeed() {
         List<Pair<Long, Long>> input = Day2.parse(readFile("inputs/aoc2025/day2-full"));
         StopWatchGauge.run(() -> Day2.part1(input), 10, Task.FIRST);
-//        StopWatchGauge.run(() -> Day2.part2(input), 10, Task.SECOND);
+        StopWatchGauge.run(() -> Day2.part2(input), 10, Task.SECOND);
     }
 }

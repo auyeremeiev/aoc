@@ -1,8 +1,6 @@
 package aoc2025;
 
-import common.ListUtils;
 import common.Pair;
-import common.StopWatchGauge;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,10 +8,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.LongStream;
 
-import static common.ListUtils.difference;
-import static common.ListUtils.printList;
+import static common.ListUtils.*;
 import static common.Number.*;
 import static java.lang.Math.abs;
 
@@ -88,14 +84,85 @@ public class Day2 {
         return result;
     }
 
-    public static BigDecimal part2(String input) {
+    public static Long part2(String input) {
         List<Pair<Long, Long>> numbers = parse(input);
 
         return part2(numbers);
     }
 
-    public static BigDecimal part2(List<Pair<Long, Long>> ranges) {
-        return null;
+    public static Long part2(List<Pair<Long, Long>> ranges) {
+        return ranges.stream()
+                .map(it -> {
+                    List<Long> numbers = part2ProcessRangeBruteForce(it);
+                    return numbers.stream().reduce(0L, Long::sum);
+                })
+                .reduce(0L, Long::sum);
+    }
+
+    public static List<Long> part2ProcessRangeBruteForce(Pair<Long, Long> range) {
+        List<Long> result = new ArrayList<>();
+        Long left = range.getLeft();
+        Long right = range.getRight();
+
+        long i = left;
+        while(i <= right) {
+            if (isInvalidIdPart2(i)) {
+                result.add(i);
+            }
+//
+//            if (isInvalidIdPart2UsingString(i) != isInvalidIdPart2(i)) {
+//                log.info("Found difference when smarter algorithm returned wrong result! : {}. " +
+//                        "Correct result: {}, wrong result: {}", i, isInvalidIdPart2UsingString(i), isInvalidIdPart2(i));
+//            }
+
+            i++;
+        }
+
+        return result;
+    }
+
+    public static boolean isInvalidIdPart2(final long i) {
+        if (i < 10) {
+            return false;
+        }
+
+        int digits = digits(i);
+        List<Long> allPartitions = findAllDivisors(digits);
+
+        allPartitions.remove(0);
+        for (Long partitionSize : allPartitions) {
+            if (partitionSize == digits) {
+                if (allDigitsAreSame(i)) {
+                    return true;
+                }
+            } else {
+                List<Long> parts = splitIntoEqualParts(i, partitionSize);
+                if (allElementsAreEqual(parts)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isInvalidIdPart2UsingString(final long i) {
+        if (i < 10) {
+            return false;
+        }
+
+        int digits = digits(i);
+        List<Long> allPartitions = findAllDivisors(digits);
+
+        allPartitions.remove(0);
+        for (Long partitionSize : allPartitions) {
+            List<Long> parts = splitIntoEqualPartsUsingString(i, partitionSize);
+            if (allElementsAreEqual(parts)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public static List<Pair<Long, Long>> parse(String input) {

@@ -1,6 +1,9 @@
 package common;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import static java.lang.Math.log10;
 import static java.lang.Math.pow;
@@ -38,6 +41,101 @@ public class Number {
         return new Pair<>(number / base, number % base);
     }
 
+    public static boolean allDigitsAreSame(long number) {
+        int digits = digits(number);
+        long firstDigit = number / pow10(digits - 1); // 123, digits = 3, 10^2 = 1000
+
+        for (int i = 1; i < digits; i++) {
+            if (digitAt(number, i) != firstDigit) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static long digitAt(long number, int index) {
+        long adjustedNumber = number % pow10(digits(number) - index);
+
+        return adjustedNumber / pow10(digits(number) - index - 1); // 12345, i = 1; digits(number) - index = 5 - 2 = 3, 10 ^ 3 = 1000
+    }
+
+    public static List<Long> splitIntoEqualParts(long number, long parts) {
+        int digits = digits(number);
+
+        if (digits % parts != 0) {
+            throw new IllegalArgumentException("Can't produce equals" +
+                    " parts from the number of length %d and parts number %d".formatted(digits, parts));
+        }
+
+        List<Long> result = new ArrayList<>();
+        long eachPartLength = digits / parts;
+
+        long remainingNumber = number;
+        while (digits(remainingNumber) > eachPartLength) {
+            // it misses the case with training zeros
+            int skippedZeros = 0;
+            int numberOfTrailinngZerosInNextPart = numberOfTrailingZerosAfterIndex(remainingNumber, eachPartLength);
+            if (numberOfTrailinngZerosInNextPart >= eachPartLength) {
+                skippedZeros = (int) (numberOfTrailinngZerosInNextPart / eachPartLength);
+            }
+
+            Pair<Long, Long> currentSplit = splitWithSize(remainingNumber, eachPartLength);
+            result.add(currentSplit.getLeft());
+            remainingNumber = currentSplit.getRight();
+            if (skippedZeros > 0) {
+                for (int i = 0; i < skippedZeros; i++) {
+                    result.add(0L);
+                }
+            }
+        }
+        result.add(remainingNumber);
+
+        return result;
+    }
+
+    private static int numberOfTrailingZerosAfterIndex(long number, long i) {
+        int digits = digits(number);
+
+        int j = 0;
+        while (j + i < digits && digitAt(number, (int) (j + i)) == 0) {
+            j++;
+        }
+        return j;
+    }
+
+    public static List<Long> splitIntoEqualPartsUsingString(long number, long parts) {
+        String n = String.valueOf(number);
+
+        if (n.length() % parts != 0) {
+            throw new IllegalArgumentException("Can't produce equals" +
+                    " parts from the number of length %d and parts number %d".formatted(n.length(), parts));
+        }
+
+        List<Long> result = new ArrayList<>();
+        long eachPartLength = n.length() / parts;
+
+        String remainingNumber = n;
+        while (remainingNumber.length() > eachPartLength) {
+            // it misses the case with training zeros
+            Pair<String, String> currentSplit = Pair.of(
+                    remainingNumber.substring(0, (int) eachPartLength),
+                    remainingNumber.substring((int) eachPartLength)
+            );
+            result.add(Long.valueOf(currentSplit.getLeft()));
+            remainingNumber = currentSplit.getRight();
+        }
+        result.add(Long.valueOf(remainingNumber));
+
+        return result;
+    }
+
+    public static Pair<Long, Long> splitWithSize(long number, long leftSize) {
+        long base = (long) pow(10L, digits(number) - leftSize);
+        // 123[456]
+        return new Pair<>(number / base, number % base);
+    }
+
     public static Pair<Long, Long> splitLeftBigger(long number) {
         int digits = digits(number);
         int newLeftSize = digits % 2 == 0 ? digits / 2 : digits / 2 + 1;
@@ -56,6 +154,24 @@ public class Number {
         long base = (long) pow(10L, newRightSize);
         // 123[456]
         return new Pair<>(number % base, number / base);
+    }
+
+    public static List<Long> findAllDivisors(long number) {
+        List<Long> small = new ArrayList<>();
+        List<Long> large = new ArrayList<>();
+
+        for (long i = 1; i * i <= number; i++) {
+            if (number % i == 0) {
+                small.add(i);
+
+                if (number / i != i) {
+                    large.add(0, number / i);
+                }
+            }
+        }
+
+        small.addAll(large);
+        return small;
     }
 
     public static long concatLog10(long left, long right) {
