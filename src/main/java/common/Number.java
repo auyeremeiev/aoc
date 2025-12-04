@@ -2,6 +2,7 @@ package common;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,6 +13,10 @@ public class Number {
 
     public static long concat(long left, long right) {
         return left * pow10(digits(right)) + right;
+    }
+
+    public static int concat(int left, int right) {
+        return (int) (left * pow10(digits(right)) + right);
     }
 
     public static BigDecimal number(String number) {
@@ -217,5 +222,24 @@ public class Number {
 
     public static int modulo(int currentCode, int mod) {
         return (currentCode % mod + mod) % mod;
+    }
+
+    public static long convertToLong(int[] number) {
+        StringBuilder sb = new StringBuilder(number.length);
+
+        for (int d : number) {
+            if (d < 0 || d > 9)
+                throw new IllegalArgumentException("All elements must be digits 0–9");
+
+            sb.append(d);
+        }
+
+        return Long.parseLong(sb.toString());
+    }
+
+    public static int[] convertToDigits(String number) {
+        return number.chars()
+                .map(c -> c - '0')
+                .toArray();
     }
 }
