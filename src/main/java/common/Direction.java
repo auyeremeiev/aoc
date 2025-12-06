@@ -1,5 +1,6 @@
 package common;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 public enum Direction {
@@ -72,6 +73,27 @@ public enum Direction {
 
         while (currentDirection != startingDirection) {
             func.accept(currentDirection.nextPoint(point));
+            currentDirection = currentDirection.switchClockWise();
+        }
+    }
+
+    public static <T> void traverseAllDirectionsPointsInsideMatrix(
+            Point point,
+            Direction startingDirection,
+            List<List<T>> matrix,
+            Consumer<Point> func) {
+        Direction currentDirection = startingDirection;
+        Point nextPoint = currentDirection.nextPoint(point);
+        if (nextPoint.insideMatrix(matrix)) {
+            func.accept(nextPoint);
+        }
+        currentDirection = currentDirection.switchClockWise();
+
+        while (currentDirection != startingDirection) {
+            nextPoint = currentDirection.nextPoint(point);
+            if (nextPoint.insideMatrix(matrix)) {
+                func.accept(nextPoint);
+            }
             currentDirection = currentDirection.switchClockWise();
         }
     }

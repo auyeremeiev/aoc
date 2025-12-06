@@ -167,6 +167,16 @@ public class ListUtils {
         }
     }
 
+    public static <T> void fillMatrix(List<List<T>> matrix, T value, int size) {
+        for (int i = 0; i < size; i++) {
+            List<T> currentRow = new ArrayList<>();
+            matrix.add(currentRow);
+            for (int j = 0; j < size; j++) {
+                currentRow.add(value);
+            }
+        }
+    }
+
     public static <T> String printList(List<T> list) {
         List<String> stringifiedList = list.stream().map(Object::toString).toList();
         return "[" + String.join(", ", stringifiedList) + "]";
