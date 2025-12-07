@@ -47,7 +47,7 @@ class Day5Test {
     @Test
     public void measureSpeed() {
         Pair<List<Pair<Long, Long>>, List<Long>> input = Day5.parse(readFile("inputs/aoc2025/day5-full"));
-        StopWatchGauge.run(() -> Day5.part1(input), 10, Task.FIRST);
-        StopWatchGauge.run(() -> Day5.part2(input), 10, Task.SECOND);
+        StopWatchGauge.run(() -> Day5.part1(input), 1000, Task.FIRST);
+        StopWatchGauge.run(() -> Day5.part2(input), 1000, Task.SECOND);
     }
 }

@@ -48,7 +48,7 @@ class Day4Test {
     @Test
     public void measureSpeed() {
         List<List<Boolean>> input = Day4.parse(readFile("inputs/aoc2025/day4-full"));
-        StopWatchGauge.run(() -> Day4.part1(input), 10, Task.FIRST);
+        StopWatchGauge.run(() -> Day4.part1(input), 1000, Task.FIRST);
         StopWatchGauge.run(() -> {
             List<List<Boolean>> grid = new ArrayList<>(input);
             return Day4.part2(grid);

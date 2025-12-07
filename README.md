@@ -2,14 +2,14 @@
 
 I didn't measure all the tasks I did. Here is the table of those I measured:
 
-| Day                                  | Task1  |  Task2 |
-|--------------------------------------|:------:|-------:|
-| [1](src/main/java/aoc2025/Day1.java) | 0.23ms | 0.28ms |
-| [2](src/main/java/aoc2025/Day2.java) | 0.2ms  |  374ms |
-| [3](src/main/java/aoc2025/Day3.java) | 0.3ms  |  0.8ms |
-| [4](src/main/java/aoc2025/Day4.java) | 4.5ms  |   25ms |
-| [5](src/main/java/aoc2025/Day5.java) | 0.4ms  | 0.07ms |
-| [7](src/main/java/aoc2025/Day7.java) | 1.6ms  |   1.67 |
+| Day                                  | Task1  |   Task2 |
+|--------------------------------------|:------:|--------:|
+| [1](src/main/java/aoc2025/Day1.java) | 0.05ms |  0.03ms |
+| [2](src/main/java/aoc2025/Day2.java) | 0.03ms |   374ms |
+| [3](src/main/java/aoc2025/Day3.java) | 0.14ms |  0.21ms |
+| [4](src/main/java/aoc2025/Day4.java) |  1ms   |    25ms |
+| [5](src/main/java/aoc2025/Day5.java) | 0.08ms | 0.009ms |
+| [7](src/main/java/aoc2025/Day7.java) | 0.38ms |   0.3ms |
 
 # Advent of code 2024
 
