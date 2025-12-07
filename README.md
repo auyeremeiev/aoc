@@ -9,6 +9,7 @@ I didn't measure all the tasks I did. Here is the table of those I measured:
 | [3](src/main/java/aoc2025/Day3.java) | 0.3ms  |  0.8ms |
 | [4](src/main/java/aoc2025/Day4.java) | 4.5ms  |   25ms |
 | [5](src/main/java/aoc2025/Day5.java) | 0.4ms  | 0.07ms |
+| [7](src/main/java/aoc2025/Day7.java) | 1.6ms  |   1.67 |
 
 # Advent of code 2024
 
