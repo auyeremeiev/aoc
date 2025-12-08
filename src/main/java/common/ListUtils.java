@@ -243,4 +243,8 @@ public class ListUtils {
 
         return true;
     }
+
+    public static <T> List<T> clone(List<T> list) {
+        return new ArrayList<>(list);
+    }
 }
