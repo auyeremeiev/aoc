@@ -201,6 +201,12 @@ public class ListUtils {
         return result;
     }
 
+    public static <T> List<T> intersection(List<T> list1, List<T> list2) {
+        List<T> result = new ArrayList<>(list1);
+        result.retainAll(list2);
+        return result;
+    }
+
     public static <T> boolean isBeyoundEdge(List<List<T>> field, Point point) {
         if (point.getLeft() < 0 || point.getRight() < 0) {
             return true;

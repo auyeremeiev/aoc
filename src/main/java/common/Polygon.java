@@ -116,12 +116,6 @@ public class Polygon {
             return true;
         }
 
-        for (Point point : rectangle.getPoints()) {
-            if (!isPointInsidePolygon(point)) {
-                return false;
-            }
-        }
-
         if (intersectsHorizontalStickingOuts(rectangle, lines) ||
                 intersectsVerticalStickingOuts(rectangle, lines)) {
             return false;
