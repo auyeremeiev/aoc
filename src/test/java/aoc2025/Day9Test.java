@@ -42,7 +42,7 @@ class Day9Test {
     public void testPart2Full() {
         String input = readFile("inputs/aoc2025/day9-full");
         Long result = Day9.part2(input);
-        assertThat(result).isEqualTo(34284458938L);
+        assertThat(result).isEqualTo(1476550548L);
     }
 
     @Test

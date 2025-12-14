@@ -12,6 +12,8 @@ public class Polygon {
     private Point bottomPoint;
     private List<Line2P> lines;
 
+    private Map<Point, Boolean> insidePolygonCheckCache = new HashMap<>();
+
     public Polygon(List<Point> points) {
         this.leftMostPoint = findLeftMostPoint(points);
         this.topPoint = findTopPoint(points);
@@ -70,25 +72,27 @@ public class Polygon {
     }
 
     public boolean isPointInsidePolygon(Point point) {
-        if (points.contains(point)) {
-            return true;
-        }
-
-        Line2P beamUp = makeBeamUp(point);
-        Line2P beamToRight = makeBeamToRight(point);
-        Line2P beamToBottom = makeBeamToBottom(point);
-        Line2P beamToLeft = makeBeamToLeft(point);
-
-        List<Line2P> beams = List.of(beamUp, beamToRight, beamToBottom, beamToLeft);
-
-        for (Line2P beam : beams) {
-            List<Line2P> intersections = beam.getIntersections(lines, false);
-            if (intersections.isEmpty()) {
-                return false;
+        return insidePolygonCheckCache.computeIfAbsent(point, key -> {
+            if (points.contains(point)) {
+                return true;
             }
-        }
 
-        return true;
+            Line2P beamUp = makeBeamUp(point);
+            Line2P beamToRight = makeBeamToRight(point);
+            Line2P beamToBottom = makeBeamToBottom(point);
+            Line2P beamToLeft = makeBeamToLeft(point);
+
+            List<Line2P> beams = List.of(beamUp, beamToRight, beamToBottom, beamToLeft);
+
+            for (Line2P beam : beams) {
+                List<Line2P> intersections = beam.getIntersections(lines, false);
+                if (intersections.isEmpty()) {
+                    return false;
+                }
+            }
+
+            return true;
+        });
     }
 
     private static Line2P makeBeamToLeft(Point point) {
