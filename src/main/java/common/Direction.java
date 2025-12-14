@@ -26,6 +26,15 @@ public enum Direction {
         };
     }
 
+    public Direction opposite() {
+        return switch (this) {
+            case UP -> DOWN;
+            case DOWN -> UP;
+            case RIGHT -> LEFT;
+            case LEFT -> RIGHT;
+        };
+    }
+
     public Direction switchCounterClockWise() {
         return switch (this) {
             case UP -> Direction.LEFT;
@@ -42,6 +51,28 @@ public enum Direction {
             case DOWN -> new Point(point.getLeft() + 1, point.getRight());
             case RIGHT -> new Point(point.getLeft(), point.getRight() + 1);
         };
+    }
+
+    public static Direction getDirection(PointDouble point1, PointDouble point2) {
+        if (point1.equals(point2)) {
+            throw new IllegalArgumentException("Points are equal");
+        }
+
+        if (point1.getRight().equals(point2.getRight())) {
+            if (point1.getLeft() == point2.getLeft() + 1) {
+                return Direction.DOWN;
+            } else if (point1.getLeft() == point2.getLeft() - 1) {
+                return Direction.UP;
+            }
+        } else if (point1.getLeft().equals(point2.getLeft())) {
+            if (point1.getRight().equals(point2.getRight() + 1)) {
+                return Direction.RIGHT;
+            } else if (point1.getRight().equals(point2.getRight() - 1)) {
+                return Direction.LEFT;
+            }
+        }
+
+        throw new IllegalArgumentException("Don't support diagonal directions yet");
     }
 
     public static Direction getDirection(Point point1, Point point2) {

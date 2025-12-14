@@ -28,6 +28,10 @@ public class Line {
         return points;
     }
 
+    public Pair<Integer, Integer> getLastPont() {
+        return points.get(points.size() - 1);
+    }
+
     public int getLength() {
         int result = 0;
         if (points.size() <= 1) {
