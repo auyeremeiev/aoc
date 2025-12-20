@@ -2,14 +2,22 @@ package common;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 public class Node3D extends Point3D implements AbstractNode<Node3D> {
 
     private final Set<Node3D> adjacentNodes;
+    private final String id;
 
     public Node3D(double x, double y, double z) {
         super(x, y, z);
         adjacentNodes = new HashSet<>();
+        id = UUID.randomUUID().toString();
+    }
+
+    @Override
+    public String getId() {
+        return id;
     }
 
     public void addAdjacentNode(Node3D node3D) {

@@ -253,4 +253,20 @@ public class ListUtils {
     public static <T> List<T> clone(List<T> list) {
         return new ArrayList<>(list);
     }
+
+    public static <T> List<T> cutOffAfterInclusive(List<T> list, T element) {
+        int elementIndex = -1;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).equals(element)) {
+                elementIndex = i;
+                break;
+            }
+        }
+
+        if (elementIndex == -1) {
+            throw  new IllegalStateException("Didn't find element");
+        }
+
+        return list.subList(elementIndex, list.size());
+    }
 }
