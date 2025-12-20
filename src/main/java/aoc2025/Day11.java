@@ -161,21 +161,6 @@ public class Day11 {
             this.pathsContainingBoth = pathsContainingBoth;
         }
 
-        public long getPathsContainingNone() {
-            return pathsContainingNone;
-        }
-
-        public long getPathsContainingOnlyFft() {
-            return pathsContainingOnlyFft;
-        }
-
-        public boolean containsFfts() {
-            return pathsContainingOnlyFft > 0;
-        }
-
-        public void setPathsContainingOnlyFft(int pathsContainingOnlyFft) {
-            this.pathsContainingOnlyFft = pathsContainingOnlyFft;
-        }
 
         public void addDac() {
             if (this.pathsContainingOnlyFft > 0) {
@@ -191,22 +176,6 @@ public class Day11 {
             this.pathsContainingNone = 0;
         }
 
-        public long getPathsContainingOnlyDac() {
-            return pathsContainingOnlyDac;
-        }
-
-        public void decrementPathsContainingOnlyDac() {
-            pathsContainingOnlyDac--;
-        }
-
-        public void incrementPathsContainingOnlyDac() {
-            pathsContainingOnlyDac++;
-        }
-
-        public void setPathsContainingOnlyDac(long pathsContainingOnlyDac) {
-            this.pathsContainingOnlyDac = pathsContainingOnlyDac;
-        }
-
         public void addFft() {
             if (this.pathsContainingOnlyDac > 0) {
                 this.pathsContainingBoth += pathsContainingOnlyDac;
@@ -219,18 +188,6 @@ public class Day11 {
         private void addFftToNone() {
             this.pathsContainingOnlyFft += this.pathsContainingNone;
             this.pathsContainingNone = 0;
-        }
-
-        public long getPathsContainingBoth() {
-            return pathsContainingBoth;
-        }
-
-        public void setPathsContainingBoth(long pathsContainingBoth) {
-            this.pathsContainingBoth = pathsContainingBoth;
-        }
-
-        public void incrementPathsContainingBoth() {
-            this.pathsContainingBoth++;
         }
 
         public void combine(SubgraphResult result) {
