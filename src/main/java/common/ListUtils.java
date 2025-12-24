@@ -26,6 +26,49 @@ public class ListUtils {
         return result;
     }
 
+    public static int minNumber(Collection<Integer> list, int excludingNumber) {
+        int result = Integer.MAX_VALUE;
+        for (Integer number : list) {
+            if (!number.equals(excludingNumber) && number < result) {
+                result = number;
+            }
+        }
+        return result;
+    }
+
+    public static Pair<Integer, List<Integer>> minNumberWithIndexes(List<Integer> list, int excludingNumber) {
+        int minValue = minNumber(list, excludingNumber);
+        return Pair.of(minValue, allOccurrencesIndexes(list, minValue, excludingNumber));
+    }
+
+    public static List<Integer> allOccurrencesIndexes(List<Integer> values, int value, int excludingNumber) {
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < values.size(); i++) {
+            if (values.get(i) != excludingNumber && Objects.equals(values.get(i), value)) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+
+    public static List<Integer> allNonOccurrencesIndexes(List<Integer> values, Integer value) {
+        return allNonOccurrencesIndexes(values, value, null);
+    }
+
+    public static List<Integer> allNonOccurrencesIndexes(List<Integer> values, Integer value, Integer excludingNumber) {
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < values.size(); i++) {
+            if (excludingNumber != null && Objects.equals(values.get(i), excludingNumber)) {
+                continue;
+            }
+
+            if (!Objects.equals(values.get(i), value)) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+
     public static int maxNumber(Collection<Integer> list) {
         int result = Integer.MIN_VALUE;
         for (Integer number : list) {
